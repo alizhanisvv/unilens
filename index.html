@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UniLens — визуальный профиль университета</title>
+  <meta name="description" content="Реальные, верифицированные фото университетов Казахстана и Центральной Азии. Без стоков и генерации." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="#top" aria-label="UniLens">
+        <span class="logo-mark">◉</span>
+        <span class="logo-text">Uni<b>Lens</b></span>
+      </a>
+      <span class="pill">LOCUS Startup Hackathon 2026</span>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <p class="eyebrow">Визуальный профиль университета</p>
+      <h1>Увидь университет <span class="grad">до того, как поступишь</span></h1>
+      <p class="lead">
+        Только реальные фотографии с источниками. Если верифицированных фото нет —
+        мы так и скажем, а не подсунем красивую картинку.
+      </p>
+
+      <div class="search" role="search">
+        <span class="search-icon" aria-hidden="true">🔍</span>
+        <input id="searchInput" type="search" autocomplete="off" spellcheck="false"
+               placeholder="Найти вуз: казну, kaznu, муит, iitu, кбту, NU, ену, кимэп…"
+               aria-label="Поиск университета" />
+        <button id="clearBtn" class="clear" type="button" aria-label="Очистить" hidden>×</button>
+        <kbd class="hotkey" aria-hidden="true">/</kbd>
+      </div>
+
+      <div class="examples">
+        <span class="muted">Попробуй:</span>
+        <button class="ex" data-q="казну">казну</button>
+        <button class="ex" data-q="iitu">iitu</button>
+        <button class="ex" data-q="кбту">кбту</button>
+        <button class="ex" data-q="Nazarbayev">Nazarbayev</button>
+        <button class="ex ex-warn" data-q="Гарвард">Гарвард</button>
+      </div>
+
+      <div id="chips" class="chips" role="group" aria-label="Категории фото"></div>
+      <div id="stats" class="stats"></div>
+    </section>
+
+    <section class="container results-wrap" aria-live="polite">
+      <div id="summary" class="summary"></div>
+      <div id="results"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Принцип «Честная неопределённость»</h4>
+        <p>Мы не заполняем пробелы стоковыми или сгенерированными картинками. Нет проверенного фото — показываем предупреждение.</p>
+      </div>
+      <div>
+        <h4>Источники</h4>
+        <p>Фотографии — с Wikimedia Commons. Автор и лицензия указаны на странице каждого файла (ссылка «Источник» на карточке).</p>
+      </div>
+    </div>
+    <div class="container copyright">UniLens · прототип для LOCUS Startup Hackathon 2026</div>
+  </footer>
+
+  <div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Просмотр фото">
+    <button class="lb-close" id="lbClose" aria-label="Закрыть">×</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Предыдущее фото">‹</button>
+    <figure class="lb-fig">
+      <div class="lb-imgwrap"><img id="lbImg" alt="" /></div>
+      <figcaption>
+        <div id="lbTitle" class="lb-title"></div>
+        <div id="lbMeta" class="lb-meta"></div>
+        <a id="lbSource" class="source" target="_blank" rel="noopener noreferrer"></a>
+      </figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Следующее фото">›</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
